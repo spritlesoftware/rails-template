@@ -27,7 +27,7 @@ rescue LoadError
 	puts        "\n"
 	say_status  "ERROR", "Rubygem 'god' not installed\n", :red
 	puts        '-'*80
-	say_status  "", "gem install god"
+	say_status  "", "gem install god", :yellow
 	puts        "\n"
 
 	if yes?("Should I install it for you?", :bold)
