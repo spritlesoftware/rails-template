@@ -176,8 +176,8 @@ END
 git :init
 
 
-after_bundle do
-  say_status "Successfully created new rails application from Spritle rails Template.", :green
-  says_status "Build awesome apps",:green
-end
+ 
+ say_status "Successfully created new rails application from Spritle rails Template.", :green
+ says_status "Build awesome apps",:green
+
 
