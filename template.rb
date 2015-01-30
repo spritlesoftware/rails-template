@@ -148,10 +148,10 @@ gem 'rest-client'
 gem 'haml'
 gem 'rspec'
 gem 'airborne'
-gem 'capistrano', '~> 3.3.0'
+gem 'capistrano' 
 gem 'rubocop'
 gem 'devise'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails' 
 
 gem_group :development, :test do
 	gem "rspec-rails"
