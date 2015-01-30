@@ -27,7 +27,7 @@ rescue LoadError
 	puts        "\n"
 	say_status  "ERROR", "Rubygem 'god' not installed\n", :red
 	puts        '-'*80
-	say_status  "", "gem install god", :yellow
+	say_status  "", "gem install god"
 	puts        "\n"
 
 	if yes?("Should I install it for you?", :bold)
@@ -176,8 +176,5 @@ END
 git :init
 
 
- 
- say_status "Successfully created new rails application from Spritle rails Template.", :green
- says_status "Build awesome apps",:green
 
 
