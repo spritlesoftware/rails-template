@@ -178,6 +178,6 @@ git :init
 
 after_bundle do
   say_status "Successfully created new rails application from Spritle rails Template."
-  says_status "Buid awesome apps"
+  says_status "Build awesome apps"
 end
 
