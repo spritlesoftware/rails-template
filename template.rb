@@ -162,7 +162,7 @@ end
 
 run "bundle exec cap install"
 
-say_status "Creating .gitignore file"
+say_status "Creating .gitignore file", :yellow
 
 run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
 run "rm -f .gitignore"
