@@ -38,9 +38,10 @@ rescue LoadError
 	end
 end
 
-run "touch config/monitor.god"
 
 say_status "Creating god configuration",:yellow
+
+run "bundle exec cap install"
 
 file "config/monitor.god", <<-END.gsub(/  /, '')
 
@@ -160,7 +161,7 @@ gem_group :development, :test do
 end
 
 
-run "bundle exec cap install"
+
 
 say_status "Creating .gitignore file", :yellow
 
