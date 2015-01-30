@@ -43,7 +43,7 @@ say_status "Creating god configuration",:yellow
 
 run "bundle exec cap install"
 
-file "config/monitor.god", <<-END.gsub(/  /, '')
+file "monitor.god", <<-END.gsub(/  /, '')
 
 rails_env = ENV['RAILS_ENV'] || "development"
 rails_root = ENV['RAILS_ROOT'] || "/home/deploy/webapps/project"
