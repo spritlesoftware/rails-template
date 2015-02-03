@@ -48,6 +48,7 @@ file "monitor.god", <<-END.gsub(/  /, '')
 rails_env = ENV['RAILS_ENV'] || "development"
 rails_root = ENV['RAILS_ROOT'] || "/home/deploy/webapps/project"
 APP_ROOT  = "home/deploy/webapps/project"
+APP_ENV='development'
 
 God.pid_file_directory = File.join(APP_ROOT, %w(tmp pids))
 
@@ -161,6 +162,19 @@ God.watch do |w|
 	end
 end
 
+God.watch do |w|
+	w.name = "delayed-jobs"
+	w.interval = 15.seconds # default
+	w.start = "rake -f #{RAILS_ROOT}/Rakefile RAILS_ENV=#{APP_ENV} jobs:work"	 
+	 
+	 
+	w.start_if do |start|
+		start.condition(:process_running) do |c|
+		c.interval = 5.seconds
+		c.running = false
+		end
+	end
+end
 
 END
 
