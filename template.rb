@@ -47,6 +47,9 @@ file "monitor.god", <<-END.gsub(/  /, '')
 
 rails_env = ENV['RAILS_ENV'] || "development"
 rails_root = ENV['RAILS_ROOT'] || "/home/deploy/webapps/project"
+APP_ROOT  = "home/deploy/webapps/project"
+
+God.pid_file_directory = File.join(APP_ROOT, %w(tmp pids))
 
 def generic_monitoring(w, options = {})
 	w.start_if do |start|
@@ -139,6 +142,26 @@ God.watch do |w|", <<-END.gsub(/  /, '')
 	end
 	generic_monitoring(w, :cpu_limit => 80.percent, :memory_limit => 1024.megabytes)
 end
+
+
+God.watch do |w|
+	w.name = "apache"
+	w.interval = 15.seconds # default
+	w.start = "apachectl start"
+	w.stop = "apachectl stop"
+	w.restart = "apachectl restart"
+	w.start_grace = 10.seconds
+	w.restart_grace = 10.seconds
+	 
+	w.start_if do |start|
+		start.condition(:process_running) do |c|
+		c.interval = 5.seconds
+		c.running = false
+		end
+	end
+end
+
+
 END
 
 
