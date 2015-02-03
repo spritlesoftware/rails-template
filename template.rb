@@ -139,6 +139,7 @@ God.watch do |w|", <<-END.gsub(/  /, '')
 	end
 	generic_monitoring(w, :cpu_limit => 80.percent, :memory_limit => 1024.megabytes)
 end
+
 END
 
 
@@ -152,12 +153,16 @@ gem 'capistrano'
 gem 'rubocop'
 gem 'devise'
 gem 'sass-rails' 
+gem 'capybara'
+gem "capybara-webkit"
+gem 'delayed_job_active_record'
 
 gem_group :development, :test do
 	gem "rspec-rails"
 	gem "better_errors"
 	gem "binding_of_caller"
 	gem 'brakeman', :require => false
+        gem 'pry-rails', :group => :development
 end
 
 
