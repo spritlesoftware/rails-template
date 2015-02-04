@@ -15,7 +15,9 @@ TODO
 
 ### Usage
 
-`rails new my_app -m https://raw.githubusercontent.com/spritlesoftware/rails-template/master/template.rb`
+```
+rails new my_app -m https://raw.githubusercontent.com/spritlesoftware/rails-template/master/template.rb
+```
 
 ### Contributing
 
